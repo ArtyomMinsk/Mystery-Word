@@ -5,48 +5,48 @@ def level_of_difficulty():
     level = input("Please enter the level of difficulty: ").lower()
     if level == "easy":
         print("You chose an easy level!")
-        return get_easy_list()
+        return get_easy_word()
     elif level == "normal":
         print("You chose a normal level!")
-        return get_normal_list()
+        return get_normal_word()
     elif level == "hard":
         print("You chose a hard level!")
-        return get_hard_list()
+        return get_hard_word()
 
-    # secret_word = random.choice(my_word_list)
-    # print("Your secret word is: ", secret_word)
-
-#write a function to get a list if level is easy
-def get_easy_list():
+#write a function to get a list and a random word if level is easy
+def get_easy_word():
     my_easy_list = []
     with open('/usr/share/dict/words', 'r') as f:
-    #my_word_list = ["art", "shannon", "robert", "michael", "tommy", "nesterenko", "sergeevich"]
         for item in f:
-            if len(item) >= 4 and len(item) <= 6:
-                my_easy_list.append(item)
+            if len(item.strip()) >= 4 and len(item.strip()) <= 6:
+                my_easy_list.append(item.strip())
+    my_word = random.choice(my_easy_list)
+    print(my_word)
+    print(" _ " * len(my_word))
+    return random.choice(my_easy_list)
 
-    print(my_easy_list)
-
-#write a function to get a list if level is normal
-def get_normal_list():
+#write a function to get a list and a random word if level is normal
+def get_normal_word():
     my_normal_list = []
     with open('/usr/share/dict/words', 'r') as f:
-    #my_word_list = ["art", "shannon", "robert", "michael", "tommy", "nesterenko", "sergeevich"]
         for item in f:
-            if len(item) >= 6 and len(item) <= 8:
-                my_normal_list.append(item)
+            if len(item.strip()) >= 6 and len(item.strip()) <= 8:
+                my_normal_list.append(item.strip())
+    my_word = random.choice(my_normal_list)
+    print(my_word)
+    print(" _ " * len(my_word))
+    return random.choice(my_normal_list)
 
-    print(my_normal_list)
-
-#write a function to get a list if level is hard
-def get_hard_list():
+#write a function to get a list and a random word if level is hard
+def get_hard_word():
     my_hard_list = []
     with open('/usr/share/dict/words', 'r') as f:
-    #my_word_list = ["art", "shannon", "robert", "michael", "tommy", "nesterenko", "sergeevich"]
         for item in f:
-            if len(item) >= 8:
-                my_hard_list.append(item)
-
-    print(my_hard_list)
+            if len(item.strip()) >= 8:
+                my_hard_list.append(item.strip())
+    my_word = random.choice(my_hard_list)
+    print(my_word)
+    print(" _ " * len(my_word))
+    return random.choice(my_hard_list)
 
 level_of_difficulty()
